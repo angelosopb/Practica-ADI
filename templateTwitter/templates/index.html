@@ -1,0 +1,92 @@
+{% extends "layout.html" %}</br>
+{% block html_attribs %} lang="en"{% endblock %}</br>
+
+{% block header %} 
+    <title>Web Service</title>
+{% endblock %}
+
+{% block body %}
+<div id="izq">
+    <h2 class="preg">¿Como quiere listar los Tweets?</h2>
+    <br>
+    <form action="{{ url_for('idioma') }}"  method=post>
+      <p>Idioma:</p>
+      <p> 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type=text name=tweetIdioma size=20>
+        &nbsp;
+        <input type=submit value="Idioma" style="width: 79px;">
+      </p>
+    </form>
+
+    <form action="{{ url_for('palabra') }}"  method=post>
+      <p>Palabra:</p>
+      <p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type=text name=tweetPalabra size=20>
+        &nbsp;
+        <input type=submit value="Palabra" style="width: 79px;">
+      </p>
+    </form>
+
+    <form action="{{ url_for('like') }}"  method=post>
+      <p>Likes:</p>
+      <p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type=text name=tweetLike size=20>
+        &nbsp;
+        <input type=submit value="Like" style="width: 79px;">
+      </p>
+    </form>
+
+    <form action="{{ url_for('personas') }}"  method=post>
+      <p>Personas (Separador ';'):</p>
+      <p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type=text name=tweetPersonas size=20>
+        &nbsp;
+        <input type=submit value="Personas">
+      </p>
+    </form>  
+
+    <br/>
+    <h3>Tweets</h3>
+ 
+    <ul>{% for tweet in tweets %}
+	<li>{{tweet}}</li>
+    </ul>
+    {% endfor %}
+    </br> 
+</div>
+<div id="der">
+    <h2 class="preg">¿Quiere saber las operaciones que ha realizado?</h2>
+    <br>
+    <form action="{{ url_for('opeFechas') }}"  method=post>
+      <p>Fechas (DD/MM/YYYY):</p>
+      <p>&nbsp;&nbsp;
+	Desde &nbsp;&nbsp;
+        <input type=text name=fecha1 size=10>
+        &nbsp;&nbsp; hasta &nbsp;&nbsp;
+        <input type=text name=fecha2 size=10>
+        &nbsp;&nbsp;
+        <input type=submit value="Fechas">
+      </p>
+    </form>
+    <br>
+    <form action="{{ url_for('operaciones') }}"  method=post>
+      <p>
+        <input type=submit value="Todos" style="width: 50%; margin-left: 20%;">
+      </p>
+    </form>
+
+    <br/>
+    <h3>Mis operaciones</h3>
+ 
+    <ul>{% for operacion in operaciones %}
+	<li>{{operacion}}</li>
+    </ul>
+    {% endfor %}
+    </br> 
+</div>
+
+{% endblock %}
