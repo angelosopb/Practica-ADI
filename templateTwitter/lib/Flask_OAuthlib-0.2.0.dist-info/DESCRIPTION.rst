@@ -1,0 +1,97 @@
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    * Neither the name of flask-oauthlib nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Description: Flask-OAuthlib
+        ==============
+        
+        .. image:: https://travis-ci.org/lepture/flask-oauthlib.png?branch=master
+                :target: https://travis-ci.org/lepture/flask-oauthlib
+        .. image:: https://coveralls.io/repos/lepture/flask-oauthlib/badge.png?branch=master
+                :target: https://coveralls.io/r/lepture/flask-oauthlib
+        
+        Flask-OAuthlib is an extension to Flask that allows you to interact with
+        remote OAuth enabled applications. On the client site, it is a replacement
+        for Flask-OAuth. But it does more than that, it also helps you to create
+        oauth providers.
+        
+        Flask-OAuthlib relies on oauthlib_.
+        
+        .. _oauthlib: https://github.com/idan/oauthlib
+        
+        Features
+        --------
+        
+        - Support for OAuth 1.0a, OAuth2 client
+        - Friendly API (same with Flask-OAuth)
+        - Direct integration with Flask
+        - Basic support for remote method invocation of RESTful APIs
+        - Support OAuth2 provider with Bearer token
+        
+        And request more features at `github issues`_.
+        
+        .. _`github issues`: https://github.com/lepture/flask-oauthlib/issues
+        
+        
+        Installation
+        ------------
+        
+        Install flask-oauthlib is simple with pip_::
+        
+            $ pip install Flask-OAuthlib
+        
+        If you don't have pip installed, try with easy_install::
+        
+            $ easy_install Flask-OAuthlib
+        
+        .. _pip: http://www.pip-installer.org/
+        
+        
+        Additional Notes
+        ----------------
+        
+        We keep a documentation at `flask-oauthlib@readthedocs`_.
+        
+        .. _`flask-oauthlib@readthedocs`: https://flask-oauthlib.readthedocs.org
+        
+        If you are only interested in client part, you can find some examples
+        in the ``example`` directory.
+        
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

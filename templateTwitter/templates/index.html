@@ -6,14 +6,33 @@
 {% endblock %}
 
 {% block body %}
+<div>
+    <br>
+    <br>
+    <form action="{{ url_for('flume') }}"  method=post style="float: left;">
+      <p> 
+        <input type=submit value="Capturar tweets">
+      </p>
+    </form>
+
+    <form action="{{ url_for('noflume') }}"  method=post style="float: right;margin-right: 75%;">
+      <p>
+        <input type=submit value="Detener captura">
+      </p>
+    </form>
+    <br>
+</div>
 <div id="izq">
     <h2 class="preg">¿Como quiere listar los Tweets?</h2>
-    <br>
     <form action="{{ url_for('idioma') }}"  method=post>
       <p>Idioma:</p>
       <p> 
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type=text name=tweetIdioma size=20>
+        <select name=tweetIdioma>
+          <option value="ninguno"></option>
+          <option value="español">Español</option>
+          <option value="ingles">Ingles</option>
+        </select> 
         &nbsp;
         <input type=submit value="Idioma" style="width: 79px;">
       </p>
@@ -33,7 +52,7 @@
       <p>Likes:</p>
       <p>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type=text name=tweetLike size=20>
+        <input type=number name=tweetLike size=20>
         &nbsp;
         <input type=submit value="Like" style="width: 79px;">
       </p>
@@ -62,7 +81,7 @@
     <h2 class="preg">¿Quiere saber las operaciones que ha realizado?</h2>
     <br>
     <form action="{{ url_for('opeFechas') }}"  method=post>
-      <p>Fechas (DD/MM/YYYY):</p>
+      <p>Fechas (DD-MM-YYYY):</p>
       <p>&nbsp;&nbsp;
 	Desde &nbsp;&nbsp;
         <input type=text name=fecha1 size=10>
@@ -88,5 +107,4 @@
     {% endfor %}
     </br> 
 </div>
-
 {% endblock %}

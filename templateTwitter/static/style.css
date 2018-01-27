@@ -9,13 +9,10 @@ body {
     width: 48%;
     height: auto;
     float:right;
-    margin-top: 32px;
 }
 
 #izq {
     float: left;
-    margin-left: -150px;
-    margin-top: 35px;
     width: 47%;
     height: auto;
     border-right: 3px solid black;

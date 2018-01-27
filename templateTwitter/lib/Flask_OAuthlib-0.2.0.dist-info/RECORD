@@ -1,0 +1,17 @@
+Flask_OAuthlib-0.2.0.dist-info/DESCRIPTION.rst,sha256=exzAoLPxV_mGZmK2R-8G-tE_nh5WHQxJD1EiRFA8Enw,4197
+Flask_OAuthlib-0.2.0.dist-info/METADATA,sha256=NsWI_Wj75sd7pKLh04pUZcLj74iB21ve9mnwu4KEMqo,4479
+Flask_OAuthlib-0.2.0.dist-info/RECORD,,
+Flask_OAuthlib-0.2.0.dist-info/WHEEL,sha256=BtVfdXUcEYLcFjOkbIrCFRyXU4qszVPt-E9o3RWkSNw,93
+Flask_OAuthlib-0.2.0.dist-info/metadata.json,sha256=CatYFA69DcI6vKt9wRQn0sZaLkif1dK0ZRkF5Z7S2CY,510
+Flask_OAuthlib-0.2.0.dist-info/top_level.txt,sha256=EhaFwKeebKc-GOx-elEdZ2Za9X1odK2H3O9O1CTApUc,15
+flask_oauthlib/__init__.py,sha256=P6ZQpBtiYilbn5ipbfcA3xMgzg3UzUTXjVo4vVc2T6E,391
+flask_oauthlib/client.py,sha256=fJQmyc4gspLbjdKqkF2WEi7XyLe43l9PEzoh8Jjdv4g,17577
+flask_oauthlib/info.py,sha256=0DvmSyyDdb4eenICgSzwrX6VQhHzCBoL__7_msyWz1E,257
+flask_oauthlib/provider/__init__.py,sha256=upHDLoQlaU2r6aw8Cu8kSqblr0MDFImLSKR5R-SJMws,262
+flask_oauthlib/provider/oauth2.py,sha256=c8fO0duLIQkZvhi_9ZmrKDSZmn-dW30gbQ9NAkRLua8,27601
+Flask_OAuthlib-0.2.0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+flask_oauthlib/provider/__init__.pyc,,
+flask_oauthlib/__init__.pyc,,
+flask_oauthlib/provider/oauth2.pyc,,
+flask_oauthlib/client.pyc,,
+flask_oauthlib/info.pyc,,
