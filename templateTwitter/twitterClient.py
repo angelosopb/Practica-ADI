@@ -2,6 +2,7 @@
 # -*- coding: utf-8; mode: python -*-
 
 import os, subprocess, signal
+import unicodedata
 from google.appengine.ext import ndb
 from google.appengine.api import memcache
 from models import Operacion
@@ -107,20 +108,46 @@ def oauthorized():
         session['twitter_oauth'] = resp
     return redirect(url_for('index'))
 
+def elimina_tildes(cadena):
+    s = ''.join((c for c in unicodedata.normalize('NFD',unicode(cadena)) if unicodedata.category(c) != 'Mn'))
+    return s.decode()
+
+#Leer archivo csv
+def leer(archivo):
+    tweets = []
+    # En primer lugar debemos de abrir el fichero que vamos a leer.
+    # Usa 'rb' en vez de 'r' si se trata de un fichero binario.
+    infile = open(archivo, 'r')
+    # Mostramos por pantalla lo que leemos desde el fichero
+    print('»> Lectura del fichero línea a línea')
+    for line in infile:
+        tweets.append(elimina_tildes(line.decode('utf-8')))
+    # Cerramos el fichero.
+    infile.close()
+    return tweets
+
+
 # Operaciones
 @app.route('/op1', methods=['POST'])
 def idioma():
   if first==1 and capturando==False:
     datos = True
+    tweets = []
     if g.user is None:
        return redirect(url_for('login'))
 
     idioma = request.form['tweetIdioma']
 
     if len(idioma)!=0:
-       if idioma == 'español':
+       if idioma == 'espanol':
+          subprocess.call("pig script.py 1 es", shell=True)
+          subprocess.call("hdfs dfs -copyToLocal -f /user/angel/out.csv /home/angel/ADI", shell=True)
+          tweets = leer('/home/angel/ADI/out.csv/part-m-00000')
           print("español")
        elif idioma == 'ingles':
+          subprocess.call("pig script.py 1 en", shell=True)
+          subprocess.call("hdfs dfs -copyToLocal -f /user/angel/out.csv /home/angel/ADI", shell=True)
+          tweets = leer('/home/angel/ADI/out.csv/part-m-00000')
           print("ingles")
        elif idioma == 'ninguno':
           datos=False
@@ -131,8 +158,7 @@ def idioma():
        storeD('idioma',idioma,g.user['screen_name'])
        storeM('idioma')
        flash('Busqueda por idioma: "%s", realizada' % idioma)
-
-    return redirect(url_for('index'))
+       return render_template('index.html', tweets=tweets)
 
   else:
     flash("Debes realizar una captura y detencion antes de realizar una operacion")
@@ -143,12 +169,16 @@ def idioma():
 def palabra():
   if first==1 and capturando==False:
     datos = True
+    tweets = []
     if g.user is None:
        return redirect(url_for('login'))
 
     palabra = request.form['tweetPalabra']
 
     if len(palabra)!=0:
+          subprocess.call("pig script.py 2 "+palabra, shell=True)
+          subprocess.call("hdfs dfs -copyToLocal -f /user/angel/out2.csv /home/angel/ADI", shell=True)
+          tweets = leer('/home/angel/ADI/out2.csv/part-m-00000')
        print("palabra")
     else:
        datos=False
@@ -159,8 +189,7 @@ def palabra():
        storeD("palabra",palabra,g.user['screen_name'])
        storeM("palabra")
        flash('Busqueda por la palabra "%s", realizada' % palabra)
-
-    return redirect(url_for('index'))
+       return render_template('index.html', tweets=tweets)
 
   else:
     flash("Debes realizar una captura y detencion antes de realizar una operacion")
@@ -170,6 +199,7 @@ def palabra():
 def like():
   if first==1 and capturando==False:
     datos = True
+    tweets = []
     if g.user is None:
        return redirect(url_for('login'))
 
@@ -185,11 +215,13 @@ def like():
     elif int(like)<0:
        flash("Error. No se aceptan negativos en la busqueda por likes")
     else:
+       subprocess.call("pig script.py 3 "+like, shell=True)
+       subprocess.call("hdfs dfs -copyToLocal -f /user/angel/out3.csv /home/angel/ADI", shell=True)
+       tweets = leer('/home/angel/ADI/out3.csv/part-m-00000')
        storeD("likes",like,g.user['screen_name'])
        storeM("likes")
        flash('Busqueda por likes "%s", realizada' % like)
-
-    return redirect(url_for('index'))
+       return render_template('index.html', tweets=tweets)
     
   else:
     flash("Debes realizar una captura y detencion antes de realizar una operacion")
@@ -199,6 +231,7 @@ def like():
 def personas():
   if first==1 and capturando==False:
     datos = True
+    tweets = []
     if g.user is None:
        return redirect(url_for('login'))
 
@@ -216,8 +249,7 @@ def personas():
        storeD("personas",personas,g.user['screen_name'])
        storeM("personas")
        flash('Busqueda por personas "%s", realizada' % personas)
-
-    return redirect(url_for('index'))
+       return render_template('index.html', tweets=tweets)
 
   else:
     flash("Debes realizar una captura y detencion antes de realizar una operacion")

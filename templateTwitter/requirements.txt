@@ -6,6 +6,7 @@
 # Note: The `lib` directory is added to `sys.path` by `appengine_config.py`.
 Flask==0.12.2
 Flask-OAuthlib==0.9.4
+subprocess32==3.5.0rc1
 Jinja2==2.9.6
 MarkupSafe==1.0
 Werkzeug==0.12.2
