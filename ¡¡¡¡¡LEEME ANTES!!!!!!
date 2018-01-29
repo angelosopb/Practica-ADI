@@ -1,0 +1,15 @@
+Antes de ejecutar nada debes saber unas cuantas cosas.
+Debido a problemas que hemos tenido tendras que hacer una serie de modificaciones si quieres que funcione tal y como nos funciona a nosotros:
+
+1º-Existe un archivo Makefile, y que ejecutando make en la terminal te ejecutara el programa con la herramienta de DATASTORE Y MEMCACHE
+en este Makefile debes indicarle donde tienes alojada la carpeta de hadoop y definir la carpeta a crear para el proyecto.
+
+En el archivo twitterClient.py debes sustituir:
+ -En el twitter oauth las claves para poder usarlo
+ -En las operaciones de búsqueda deberas sustituir las carpetas que estan puestas estaticamente por las tuyas propias
+ -En la operacion de captura con flume debes especificarle donde el archivo de configuracion twitter.conf.template que deberas tener en tu carpeta de conf dentro de flume
+
+
+2º-Existe un archivo twitterClientsinDM.py, y que se ejecuta como un fichero de python normal sin argumentos, este a diferencia del otro no utiliza la tecnología DataStore y Memcache pero vemos que los problemas que saldran en el anterior no salen aquí pero si otros que no hemos podido solucionar a tiempo.
+
+Al igual que en el archivo twitterClient.py en este tendras que modificar las mismas cosas.

@@ -179,7 +179,7 @@ def palabra():
           subprocess.call("pig script.py 2 "+palabra, shell=True)
           subprocess.call("hdfs dfs -copyToLocal -f /user/angel/out2.csv /home/angel/ADI", shell=True)
           tweets = leer('/home/angel/ADI/out2.csv/part-m-00000')
-       print("palabra")
+          print("palabra")
     else:
        datos=False
 
